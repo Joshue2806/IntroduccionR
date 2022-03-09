@@ -1,0 +1,80 @@
+---
+title: "Tarea3"
+author: "Joshué Ruiz"
+date: "26/2/2022"
+output:
+  html_document:
+    mathjax: "http://example.com/MathJax.js"
+    self_contained: true
+    fig_height: 6
+    fig_width: 8
+    theme: journal
+    highlight: zenburn
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tarea 3
+
+En el presente documento se encuentra la resolución de la **Tarea 3** con las instrucciones de la **Tarea 1** de **Introducción a R**.
+
+## 1. Identificador con ciudad
+
+```{r 1}
+ciudad <- "Sharjah"
+print(ciudad)
+```
+
+## 2. Países por donde cruza la coordillera de los Andes
+
+```{r 2}
+pais_andes <- c("Argentina", "Bolivia", "Chile", "Colombia", "Ecuador", "Perú", "Venezuela")
+print(pais_andes)
+```
+
+## 3. Dataframe
+Tabla de dinosaurios que habitaron en América del Sur.
+
+```{r 3}
+Dino_AmSur = data.frame(Especie = c("Abelisaurus comahuensis","Bonitasaura salgadoi", 
+                                    "Carnotaurus sastrei", "Dreadnoughtus schrani", 
+                                    "Elaltitan lilloi", "Futalognkosaurus dukei", 
+                                    "Giganotosaurus carolinii", "Huallasaurus australis", 
+                                    "Irritator challengeri", "Kurupi itaata0", 
+                                    "Patagotitan mayorum", "Yamanasaurus lojansis"),
+                        Descubrimiento = c("Argentina", "Argentina", "Argentina", 
+                                           "Argentina", "Argentina", "Argentina",
+                                           "Argentina", "Argentina", "Brasil", 
+                                           "Brasil", "Argentina", "Ecuador" ),
+                        InformaciónSuficiente_FaltaInformación = as.factor(c(rep(1, 8), 
+                                                                             0, 0, 0, 0)),
+                        #1 Si hay, 0 no hay
+                        fósilesEncontrados = sample(1:6,12,TRUE))
+
+Dino_AmSur
+                              
+```
+
+## 4. Ejercicio con DNase
+
+```{r 4}
+?DNase
+data <- DNase
+class(DNase)
+
+conc <- subset(data, conc < 0.2 & conc > 0.1)
+run <- subset(data, Run !=2 & conc > 0.2 & density <= 1)
+
+print(conc)
+```
+
+```{r }
+print(run)
+```
